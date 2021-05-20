@@ -1,0 +1,33 @@
+﻿@model List<CoreDepartman.Models.Personel>
+@{
+    ViewData["Title"] = "Detay";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            @*<th>Departman</th>*@
+            <th>Şehir</th>
+
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Soyad</td>
+                @*<td>@item.Departman.DepartmanAd</td>*@
+                <td>@item.Sehir</td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+

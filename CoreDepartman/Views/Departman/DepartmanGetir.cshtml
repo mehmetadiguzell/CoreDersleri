@@ -1,0 +1,20 @@
+﻿@model CoreDepartman.Models.Departman
+@{
+    ViewData["Title"] = "Departman Güncelle";
+}
+
+
+@using (Html.BeginForm("DepartmanGuncelle", "Departman", FormMethod.Post))
+{
+
+    <label class="bg-info">Id</label>
+    @Html.TextBoxFor(m => m.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    <label class="bg-info">Departman Adı</label>
+    @Html.TextBoxFor(m => m.DepartmanAd, new { @class = "form-control" })
+    <br />
+    <label class="alert-info">Departman</label>
+    @Html.DropDownListFor(m => m.Id, (List<SelectListItem>)ViewBag.Departmanlar, new { @class = "text-dark  form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}

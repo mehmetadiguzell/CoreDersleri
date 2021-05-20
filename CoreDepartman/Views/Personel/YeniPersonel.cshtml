@@ -1,0 +1,27 @@
+﻿@model CoreDepartman.Models.Personel
+@{
+    ViewData["Title"] = "Yeni Personel";
+}
+
+@using (Html.BeginForm("YeniPersonel", "Personel", FormMethod.Post))
+{
+
+
+    <div class="form-group">
+        <label class="alert-info">Personel Adı:</label>
+        @Html.TextBoxFor(m => m.Ad, new { @class = "text-dark  form-control" })
+        <br />
+        <label class="alert-info">Personel Soyadı:</label>
+        @Html.TextBoxFor(m => m.Soyad, new { @class = "text-dark  form-control" })
+        <br />
+        <label class="alert-info">Departman</label>
+        @Html.DropDownListFor(m => m.DepartmanId,(List<SelectListItem>)ViewBag.Departmanlar, new { @class = "text-dark  form-control" })
+        <br />
+        <label class="alert-info">Şehir</label>
+        @Html.TextBoxFor(m => m.Sehir, new { @class = "text-dark  form-control" })
+
+        <br />
+        <button type="submit" class="btn btn-secondary">Kaydet</button>
+    </div>
+}
+

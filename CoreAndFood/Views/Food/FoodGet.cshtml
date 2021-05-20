@@ -1,0 +1,32 @@
+﻿@model CoreAndFood.Data.Models.Food
+@{
+    ViewData["Title"] = "FoodGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Besin Güncelleme Sayfası</h1>
+<br />
+@using (Html.BeginForm("FoodUpdate", "Food", FormMethod.Post))
+{
+    @Html.HiddenFor(m=>m.Id)
+    <label class="text-info font-weight-bold">İsim</label>
+    @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    <br />
+    <label class="text-info font-weight-bold">Stok</label>
+    @Html.TextBoxFor(m => m.Stock, new { @class = "form-control" })
+    <br />
+    <label class="text-info font-weight-bold">Fiyat</label>
+    @Html.TextBoxFor(m => m.Price, new { @class = "form-control" })
+    <br />
+    <label class="text-info font-weight-bold">Resim</label>
+    @Html.TextBoxFor(m => m.ImageUrl, new { @class = "form-control" })
+    <br />
+    <label class="text-info font-weight-bold">Kategori</label>
+    @Html.DropDownListFor(m => m.CategoryId, (List<SelectListItem>)ViewBag.categoryList, new { @class = "form-control" })
+    <br />
+    <label class="text-info font-weight-bold">Açıklama</label>
+    @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+}
+

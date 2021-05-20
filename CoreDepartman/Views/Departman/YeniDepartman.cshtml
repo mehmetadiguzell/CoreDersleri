@@ -1,0 +1,14 @@
+﻿@model CoreDepartman.Models.Departman
+@{
+    ViewData["Title"] = "YeniDepartman";
+}
+
+@using(Html.BeginForm("YeniDepartman", "Departman", FormMethod.Post)) { 
+
+    <label class="bg-info">Departman Adı</label>
+    @Html.TextBoxFor(m=>m.DepartmanAd,new { @class="form-control"})
+    <br />
+    <button class="btn btn-success">Kaydet</button>
+
+}
+

@@ -1,0 +1,39 @@
+﻿@model List<CoreDepartman.Models.Personel>
+
+@{
+    ViewData["Title"] = "Personel Listesi";
+}
+
+<h1>Personel Listesi</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Departman</th>
+            <th>Şehir</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Ad</td>
+                <td>@item.Soyad</td>
+                <td>@item.Departman.DepartmanAd</td>
+                <td>@item.Sehir</td>
+                <td><a asp-action="PersonelSil" asp-controller="Personel" asp-route-id="@item.Id" class="btn btn-danger">Sil</a></td>
+                <td><a asp-action="PersonelGuncelle" asp-controller="Personel" asp-route-id="@item.Id" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a asp-action="YeniPersonel" asp-controller="Personel" class="btn btn-dark">Personel Ekle</a>

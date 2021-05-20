@@ -1,0 +1,37 @@
+﻿@model List<CoreAndFood.Data.Models.Category>
+@{
+    ViewData["Title"] = "Kategori Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center alert-info">Kategori Listesi</h1>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Kategori Ad</th>
+            <th>Durum</th>
+            <th>Kategori Açıklama</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.CategoryName</td>
+                <td>@(category.Status==true?"Kayıtlı":"Silindi")</td>
+                <td>@category.CategoryDescription</td>
+                <td><a href="@Url.Action("CategoryDelete","Category",new { Id=category.Id})" class="btn btn-danger">Sil</a></td>
+                <td><a href="@Url.Action("CategoryGet","Category",new { Id=category.Id})" class="btn btn-success">Güncelle</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+<a href="@Url.Action("CategoryAdd","Category")" class="btn btn-outline-dark">Kategori Ekle</a>
